@@ -1,0 +1,21 @@
+img {
+  position: absolute;
+  z-index: -1;
+}
+
+.cubicles {
+  position: relative;
+  display: flex;
+  top: 80px;
+  left: 85px;
+}
+
+.cubicle {
+  margin-right: 50px;
+  width: 150px;
+  height: 200px;
+  background-color: green;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}

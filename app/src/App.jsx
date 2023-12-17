@@ -1,48 +1,33 @@
-
-import { useState } from 'react';
-import './App.css';
-import React from 'react';
+import { useState } from "react";
+import "./App.css";
+import React from "react";
+import Cubicles from "./Cubicles/Cubicles";
+import ArrowUp from "./assets/arrow_up.png";
+import ArrowDown from "./assets/arrow_down.png";
 
 // const socket = new WebSocket("ws://localhost:8080")
 
 export default function App() {
-    const [charlie, setCharlie] = useState("green");
-    const [ekko, setEkko] = useState("green");
-    const [bruno, setBruno] = useState("green");
-    const [diego, setDiego] = useState("green");
+  let [page, setPage] = useState(0);
+  let pages = [<Cubicles /* socket={socket}*/ />];
 
-
- /* socket.onmessage = function(event) {
-    console.log(event.data);
-    if (event.data.toString().includes("Charlie")) {
-        setCharlie(event.data.toString().includes("detected") ? "red" : "green");
-    }
-    if (event.data.toString().includes("Ekko")) {
-        setEkko(event.data.toString().includes("detected") ? "red" : "green");
-    }
-    if (event.data.toString().includes("Bruno")) {
-        setBruno(event.data.toString().includes("detected") ? "red" : "green");
-    }
-    if (event.data.toString().includes("Diego")) {
-        setDiego(event.data.toString().includes("detected") ? "red" : "green");
-    }
-  };
-   
-*/
   return (
     <>
-        <div className="cubicle" style={ { backgroundColor: charlie} }>
-            <h1>Charlie</h1>
-        </div>
-        <div className='cubicle' style={{ backgroundColor: bruno}}>
-            <h1>Bruno</h1>
-        </div>
-        <div className="cubicle" style={{ backgroundColor: ekko}}>
-            <h1>Ekko</h1>
-        </div>
-        <div className="cubicle" style={{ backgroundColor: diego}}>
-            <h1>Diego</h1>
-        </div>
+      <div className="view">{pages[page]}</div>
+      <div className="buttons">
+        <img
+          id="up"
+          src={ArrowUp}
+          alt="UP"
+          onClick={() => setPage(++page)}
+        ></img>
+        <img
+          id="down"
+          src={ArrowDown}
+          alt="DOWN"
+          onClick={() => setPage(--page)}
+        ></img>
+      </div>
     </>
   );
 }
