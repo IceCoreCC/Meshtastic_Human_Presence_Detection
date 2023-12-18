@@ -5,11 +5,11 @@ import Cubicles from "./Cubicles/Cubicles";
 import ArrowUp from "./assets/arrow_up.png";
 import ArrowDown from "./assets/arrow_down.png";
 
-// const socket = new WebSocket("ws://localhost:8080")
+const socket = new WebSocket("ws://localhost:8080");
 
 export default function App() {
   let [page, setPage] = useState(0);
-  let pages = [<Cubicles /* socket={socket}*/ />];
+  let pages = [<Cubicles socket={socket} />];
 
   return (
     <>
