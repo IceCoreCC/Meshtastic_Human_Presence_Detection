@@ -11,7 +11,7 @@ CHARLIE = "charlie"
 DIEGO = "diego"
 EKKO = "ekko"
 
-BUCKET_DAILY_WORKLOAD = "daily workload"
+BUCKET_DAILY_WORKLOAD = "daily_workload"
 BUCKET_VALUES = "values"
 ORG = "org"
 
@@ -40,7 +40,7 @@ def onReceive(packet, interface): # called when a packet arrives
         storeValue(DIEGO, value)
     if EKKO in content:
         storeValue(EKKO, value)
-    
+
 
 def readFromValuesAndStoreIntoDailyValueTable():
         query = 'from(bucket:"values")\
@@ -89,7 +89,7 @@ def storeValue(node, value):
     p = Point("occupied").field(node, value)
     write_api.write(bucket=BUCKET_VALUES, org=ORG, record=p)
 
-    
+
 interface = meshtastic.serial_interface.SerialInterface()
 
 pub.subscribe(onReceive, "meshtastic.receive")
@@ -99,5 +99,5 @@ while True:
     time.sleep(2)
     if count >= 15 * 60 * 60: # hour * minutes * seconds
         count = 0
-        readFromValuesAndStoreIntoDailyValueTable() 
-    
+        readFromValuesAndStoreIntoDailyValueTable()
+
