@@ -12,6 +12,7 @@ CHARLIE = "charlie"
 DIEGO = "diego"
 EKKO = "ekko"
 
+BUCKET_DAILY_WORKLOAD = "daily_workload"
 # bucket constants
 BUCKET_DAILY_WORKLOAD = "daily workload"
 BUCKET_VALUES = "values"
@@ -51,7 +52,7 @@ def onReceive(packet):
         storeValue(DIEGO, value)
     if EKKO in content:
         storeValue(EKKO, value)
-    
+
 
 # This method is called at the end of each day.
 # It calculates the average workload of each device by adding all values from the first table.
@@ -115,5 +116,5 @@ while True:
     time.sleep(2)
     if count >= 15 * 60 * 60: # hour * minutes * seconds
         count = 0
-        readFromValuesAndStoreIntoDailyValueTable() 
-    
+        readFromValuesAndStoreIntoDailyValueTable()
+
