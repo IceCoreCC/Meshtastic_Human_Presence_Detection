@@ -4,6 +4,7 @@ import React from "react";
 import Cubicles from "./Cubicles/Cubicles";
 import ArrowUp from "./assets/arrow_up.png";
 import ArrowDown from "./assets/arrow_down.png";
+import Header from "./assets/hhn.png";
 
 const socket = new WebSocket("ws://localhost:8080");
 
@@ -13,6 +14,9 @@ export default function App() {
 
   return (
     <>
+      <div className="header">
+        <img id="header" src={Header} alt="Header"></img>{" "}
+      </div>
       <div className="view">{pages[page]}</div>
       <div className="buttons">
         <img
