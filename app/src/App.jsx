@@ -23,13 +23,17 @@ export default function App() {
           id="up"
           src={ArrowUp}
           alt="UP"
-          onClick={() => setPage(++page)}
+          onClick={() => {
+            if (page < pages.length - 1) setPage(++page);
+          }}
         ></img>
         <img
           id="down"
           src={ArrowDown}
           alt="DOWN"
-          onClick={() => setPage(--page)}
+          onClick={() => {
+            if (page > 0) setPage(--page);
+          }}
         ></img>
       </div>
     </>
