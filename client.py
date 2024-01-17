@@ -7,14 +7,13 @@ from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 #  cubicle device names / names stored inside influxdb
-BRUNO = "bruno"
-CHARLIE = "charlie"
-DIEGO = "diego"
-EKKO = "ekko"
+BRUNO = "Bruno"
+CHARLIE = "Charlie"
+DIEGO = "Diego"
+EKKO = "Ekko"
 
-BUCKET_DAILY_WORKLOAD = "daily_workload"
 # bucket constants
-BUCKET_DAILY_WORKLOAD = "daily workload"
+BUCKET_DAILY_WORKLOAD = "daily_workload"
 BUCKET_VALUES = "values"
 ORG = "org"
 
@@ -34,8 +33,8 @@ query_api = client.query_api()
 
 # This method is called when the meshtastic device recieves a message over the detection sensor.
 # When called, the message is being sent to the websocket server and the values are stored inside the influxdb.
-# The count variable is updated every 30 seconds. Every 30 seconds, all devices send a message telling, if a person was detected or not. 
-def onReceive(packet): 
+# The count variable is updated every 30 seconds. Every 30 seconds, all devices send a message telling, if a person was detected or not.
+def onReceive(packet):
     print(f"Received: ", packet["decoded"]["payload"])
     content = str(packet["decoded"]["payload"])
     ws.send(str(packet["decoded"]["payload"]))
@@ -105,7 +104,7 @@ def storeValue(node, value):
     p = Point("occupied").field(node, value)
     write_api.write(bucket=BUCKET_VALUES, org=ORG, record=p)
 
-# creates connection to the meshtastic device   
+# creates connection to the meshtastic device
 interface = meshtastic.serial_interface.SerialInterface()
 
 # pub/sub subscription
