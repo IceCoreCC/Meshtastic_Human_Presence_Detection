@@ -41,7 +41,7 @@ def onReceive(packet):
     ws.send(str(packet["decoded"]["payload"]))
     value = 0
     global count
-    if "detected" in content:
+    if "1" in content:
         value = 1
     if CHARLIE in content:
         storeValue(CHARLIE, value)
