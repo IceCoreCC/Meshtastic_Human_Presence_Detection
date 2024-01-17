@@ -12,16 +12,16 @@ export default function Cubicles({ socket }) {
   socket.onmessage = function (event) {
     console.log(event.data);
     if (event.data.toString().includes("Charlie")) {
-      setCharlie(event.data.toString().includes("detected") ? "red" : "green");
+      setCharlie(event.data.toString().includes("1") ? "red" : "green");
     }
     if (event.data.toString().includes("Ekko")) {
-      setEkko(event.data.toString().includes("detected") ? "red" : "green");
+      setEkko(event.data.toString().includes("1") ? "red" : "green");
     }
     if (event.data.toString().includes("Bruno")) {
-      setBruno(event.data.toString().includes("detected") ? "red" : "green");
+      setBruno(event.data.toString().includes("1") ? "red" : "green");
     }
     if (event.data.toString().includes("Diego")) {
-      setDiego(event.data.toString().includes("detected") ? "red" : "green");
+      setDiego(event.data.toString().includes("1") ? "red" : "green");
     }
   };
 
