@@ -1,21 +1,29 @@
-img {
-  position: absolute;
-  z-index: -1;
-}
-
 .cubicles {
   position: relative;
-  display: flex;
-  top: 80px;
-  left: 85px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "charlie bruno ekko diego";
+  background-image: url("../assets/Cubicles.png");
+  height: 60vh;
+  width: 45vw;
+  background-size: cover;
+  background-position: center center;
+  justify-items: center;
 }
 
 .cubicle {
-  margin-right: 50px;
-  width: 150px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  width: 6vw;
+  font-size: 0.8vw;
   background-color: green;
   border-radius: 20px;
   color: white;
-  text-align: center;
+  margin-top: 8vh;
+  margin-left: 4.35vw;
+}
+
+.cubicle * {
+  margin-top: 7vh;
 }

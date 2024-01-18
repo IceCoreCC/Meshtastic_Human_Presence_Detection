@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Cubicles.css";
 import React from "react";
-import cubicles from "../assets/Cubicles.png";
 
 export default function Cubicles({ socket }) {
   const [charlie, setCharlie] = useState("green");
@@ -27,7 +26,6 @@ export default function Cubicles({ socket }) {
 
   return (
     <>
-      <img src={cubicles}></img>
       <div className="cubicles">
         <div className="cubicle" style={{ backgroundColor: charlie }}>
           <h1>Charlie</h1>
